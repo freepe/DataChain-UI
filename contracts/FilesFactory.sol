@@ -1,10 +1,10 @@
 pragma solidity ^0.4.2;
 
-import './zeppelin/lifecycle/Killable.sol';
+// import './zeppelin/lifecycle/Killable.sol';
 import "./File.sol";
 
 
-contract FilesFactory is Killable {
+contract FilesFactory {
 
     address[] public contracts;
 
@@ -15,10 +15,14 @@ contract FilesFactory is Killable {
     function newFile(
         uint accessFee,
         string hashOfcontent
-    ) public returns(address newFile)
+    ) public returns(address)
     {
-        File file = new File(accessFee, msg.sender, hashOfcontent);
+        address file = new File(accessFee, msg.sender, hashOfcontent);
         contracts.push(file);
         return file;
+    }
+
+    function getContractsList() public returns (address[]) {
+        return contracts;
     }
 }

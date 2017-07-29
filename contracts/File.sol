@@ -1,9 +1,9 @@
 pragma solidity ^0.4.2;
 
-import './zeppelin/lifecycle/Killable.sol';
+// import './zeppelin/lifecycle/Killable.sol';
 
 
-contract File is Killable {
+contract File {
     uint public fee;
     address public authorAddress;
     string private contentHash;
