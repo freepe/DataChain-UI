@@ -6,29 +6,21 @@ import * as uploadFileActions from './uploadFile.actions';
 import './styles.scss';
 
 class UploadFilePage extends Component {
-    componentWillMount() {
-        console.log('Add file');
-    }
-
-    uploadFile = (formData) => {
-        this.props.uploadFile(formData);
-    }
-
     render() {
         return (
             <section className="container">
-                <UploadForm onSubmit={this.uploadFile} />
+                <UploadForm onSubmit={this.props.onFileUpload} />
             </section>
         );
     }
 }
 
 UploadFilePage.propTypes = {
-    uploadFile: PropTypes.func.isRequired,
+    onFileUpload: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = {
-    uploadFile: uploadFileActions.uploadFile,
+    onFileUpload: uploadFileActions.onFileUpload,
 };
 
 export default connect(

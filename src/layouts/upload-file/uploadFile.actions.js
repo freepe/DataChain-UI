@@ -1,5 +1,6 @@
 import hash from 'hash.js';
 import contract from 'truffle-contract';
+import axios from 'axios';
 import store from '../../store';
 import FileFactoryContract from '../../../build/contracts/FilesFactory.json';
 
@@ -12,7 +13,8 @@ export const fileUploaded = fileContract => ({
     fileContract,
 });
 
-export const uploadFile = formData => (dispatch) => {
+export const onFileUpload = formData => (dispatch) => {
+    console.log(formData);
     return Promise.resolve(hash.sha256().update(formData).digest('hex'))
         .then((fileHash) => {
             let web3 = store.getState().web3.web3Instance

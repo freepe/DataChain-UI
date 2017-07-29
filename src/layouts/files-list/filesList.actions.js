@@ -38,10 +38,10 @@ export const getFilesList = () => (dispatch) => {
                 fileFactoryInstance.getContractsList.call()
                     .then((list) => {
                         console.log(list);
+                        dispatch(filesReceived(list));
                     });
                 fileFactoryInstance.getContractCount.call()
                     .then(num => console.log(num))
-                // console.log(fileFactoryInstance.contracts());
             })
         })
     } else {
