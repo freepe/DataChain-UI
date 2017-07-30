@@ -1,0 +1,159 @@
+/* PAGE */
+
+body,
+.pure-g [class*=pure-u] {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Oswald', 'Arial Narrow', sans-serif;
+}
+
+code {
+  display: block;
+  margin: 20px 0 15px 0;
+  padding: 10px;
+  background: #eee;
+}
+
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 45px 20px;
+}
+
+.pure-button-primary {
+  background-color: #0c1a2b;
+}
+
+.pure-button-primary:hover {
+  background-color: #233e5e;
+}
+
+.pure-form input[type="text"]:focus {
+  border-color: #0c1a2b;
+}
+
+/* NAVBAR */
+
+.navbar {
+  padding: 5px;
+  background: #0c1a2b;
+  font-family: 'Oswald', 'Arial Narrow', sans-serif;
+}
+
+.navbar a {
+  color: #fff;
+}
+
+.navbar a:active,
+.navbar a:focus,
+.navbar a:hover {
+  background: #233e5e;
+}
+
+.navbar .pure-menu-heading {
+  font-weight: bold;
+  text-transform: none;
+}
+
+.navbar .navbar-right {
+  float: right;
+}
+
+.navbar .uport-logo {
+  height: 16px;
+  margin-right: 10px;
+}
+
+.dc-uploadForm {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    justify-content: center;
+    align-items: center;
+}
+
+.dc-uploadForm__formGroup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .dc-uploadForm__fileInput {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.dc-uploadForm__fileInputWrapper {
+    position: relative;
+    overflow: hidden;
+    background: #eee;
+    border: 1px solid #ccc;
+    font-size: 30px;
+    line-height: 1;
+    text-align: center;
+    padding: 20px;
+    width: 40px;
+}
+
+.dc-uploadForm__fileInput {
+    position: absolute;
+    top: 0; right: 0;
+    font-size: 200px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer;
+}
+
+.dc-uploadForm__fileLabel {
+    font-size: 1.25em;
+    font-weight: 700;
+    background-color: #000;
+    color: #fff;
+    display: inline-block;
+    cursor: pointer;
+    padding: 5px;
+    width: 300px;
+    text-align: center;
+    margin: 20px;
+}
+
+.dc-uploadForm__fileLabel:focus,
+.dc-uploadForm__fileLabel:hover {
+    background-color: #333;
+} */
+
+.dc-uploadForm__description {
+    outline: none;
+    resize: none;
+    overflow: auto;
+    width: 300px;
+    height: 100px;
+}
+
+.dc-uploadForm__submitButton {
+    width: 306px;
+    border: none;
+    color: #fff;
+    background-color: green;
+}
+
+.dc-uploadForm__submitButton:disabled {
+    opacity: 0.8;
+}
+
+.dc-listItem {
+    display: flex;
+}
+
+.dc-listItem__image {
+    width: 30px;
+    height: 30px;
+    margin-right: 50px;
+}
