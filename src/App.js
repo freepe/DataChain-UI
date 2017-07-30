@@ -17,16 +17,10 @@ class App extends Component {
     const OnlyAuthLinks = VisibleOnlyAuth(() =>
       <span>
         <li className="pure-menu-item">
-          <Link to="/dashboard" className="pure-menu-link">Dashboard</Link>
-        </li>
-        <li className="pure-menu-item">
-          <Link to="/profile" className="pure-menu-link">Profile</Link>
-        </li>
-        <li className="pure-menu-item">
           <Link to="/upload" className="pure-menu-link">Upload</Link>
         </li>
         <li className="pure-menu-item">
-          <Link to="/list" className="pure-menu-link">List</Link>
+          <Link to="/list" className="pure-menu-link">Download</Link>
         </li>
         <LogoutButtonContainer />
       </span>
@@ -44,7 +38,7 @@ class App extends Component {
     return (
       <div className="App">
         <nav className="navbar pure-menu pure-menu-horizontal">
-          <Link to="/" className="pure-menu-heading pure-menu-link">Truffle Box</Link>
+          <Link to="/" className="pure-menu-heading pure-menu-link">Datachain</Link>
           <ul className="pure-menu-list navbar-right">
             <OnlyGuestLinks />
             <OnlyAuthLinks />

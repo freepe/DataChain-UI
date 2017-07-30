@@ -9,8 +9,6 @@ contract File {
     string private contentHash;
     address[] private buyers;
 
-    event Transfer(address indexed from, address indexed to, uint256 value);
-
     function File(
         uint accessFee,
         address contentAuthorAddress,
@@ -28,8 +26,6 @@ contract File {
         if (authorAddress.balance + fee < authorAddress.balance) {
             revert();
         }
-        authorAddress.transfer(fee);
-        Transfer(msg.sender, authorAddress, fee);
         buyers.push(msg.sender);
     }
 

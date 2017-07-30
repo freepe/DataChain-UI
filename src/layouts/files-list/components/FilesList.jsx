@@ -1,7 +1,7 @@
 import React from 'react';
 import ListItem from './ListItem';
 
-const FilesList = ({ filesList }) => {
+const FilesList = ({ filesList, payForFile }) => {
     if (!filesList || !filesList.length) {
         return (<div>No items</div>);
     }
@@ -9,7 +9,11 @@ const FilesList = ({ filesList }) => {
     return (
         <div className="container">
             {
-                filesList.map(file => (<ListItem key={file} listItem={file} />))
+                filesList.map(file => (
+                    <ListItem
+                        key={file}
+                        listItem={file}
+                    />))
             }
         </div>
     )

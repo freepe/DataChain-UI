@@ -1,16 +1,22 @@
 import hash from 'hash.js';
 import contract from 'truffle-contract';
-import axios from 'axios';
+// import axios from 'axios';
 import store from '../../store';
 import FileFactoryContract from '../../../build/contracts/FilesFactory.json';
+import FileContract from '../../../build/contracts/File.json';
 
 export const actionTypes = {
     FILE_UPLOADED: Symbol('FILE_UPLOADED'),
+    PAYMENT_SUCCESS: Symbol('PAYMENT_SUCCESS'),
 };
 
 export const fileUploaded = fileContract => ({
     type: actionTypes.FILE_UPLOADED,
     fileContract,
+});
+
+export const paymentSuccess = ({
+    type: actionTypes.PAYMENT_SUCCESS,
 });
 
 export const onFileUpload = formData => (dispatch) => {
@@ -54,4 +60,29 @@ export const onFileUpload = formData => (dispatch) => {
                 console.error('Web3 is not initialized.');
             }
         });
+};
+
+export const payForFile = address => (dispatch) => {
+    let web3 = store.getState().web3.web3Instance
+
+    if (typeof web3 !== 'undefined') {
+        const file = contract(FileContract)
+        file.setProvider(web3.currentProvider)
+        var fileInstance
+        web3.eth.getCoinbase((error, coinbase) => {
+            if (error) {
+                console.error(error);
+            }
+
+            file.at(address).then(function (instance) {
+                fileInstance = instance
+
+                fileInstance.fee.call()
+                    .then(fee => fileInstance.buyContent({ from: coinbase }))
+                    .then(fileHash => dispatch(paymentSuccess()));  
+            })
+        })
+    } else {
+        console.error('Web3 is not initialized.');
+    }
 };

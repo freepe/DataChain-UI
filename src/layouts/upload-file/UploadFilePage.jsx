@@ -7,6 +7,7 @@ import './styles.scss';
 
 class UploadFilePage extends Component {
     render() {
+        console.log(`AAAAA: ${this.props.uploadedContract}`)
         return (
             <section className="container">
                 <UploadForm onSubmit={this.props.onFileUpload} />
@@ -19,11 +20,15 @@ UploadFilePage.propTypes = {
     onFileUpload: PropTypes.func.isRequired,
 };
 
+const mapStateToProps = state => ({
+    uploadedContract: state.files.uploadedContract,
+});
+
 const mapDispatchToProps = {
     onFileUpload: uploadFileActions.onFileUpload,
 };
 
 export default connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps,
 )(UploadFilePage);

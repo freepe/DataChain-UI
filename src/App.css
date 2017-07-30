@@ -135,6 +135,7 @@ code {
     overflow: auto;
     width: 300px;
     height: 100px;
+    margin: 20px;
 }
 
 .dc-uploadForm__submitButton {
@@ -142,6 +143,7 @@ code {
     border: none;
     color: #fff;
     background-color: green;
+    margin: 20px;
 }
 
 .dc-uploadForm__submitButton:disabled {
